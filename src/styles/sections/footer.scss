@@ -1,0 +1,11 @@
+#footer {
+    padding: 15px 0;
+    color: $white-color;
+    font-size: 0.694em;
+    background: $dark-bg-color;
+    text-align: center;
+    @media screen and (min-width: 768px) {
+        text-align: left;
+        padding: 17px 0;
+    }
+}

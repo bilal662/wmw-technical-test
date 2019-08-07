@@ -1,0 +1,338 @@
+{%- assign logo_alt = section.settings.logo.alt | default: shop.name -%}
+{%- assign logo_max_width = section.settings.logo_max_width | escape -%}
+{%- assign menu = section.settings.main_linklist -%}
+{%- assign mega_menu_handle = section.settings.mega_menu_handle | handleize -%}
+
+<style>
+.top-bar {
+  background: {{ section.settings.color_bg }};
+  color: {{ section.settings.color_text }};
+}
+</style>
+
+<section data-section-id="{{ section.id }}" data-section-type="header">
+
+  <header id="header">
+
+    <div class="top-bar">
+      {%- if section.settings.bar_enabled -%}
+      <div class="container">
+        {%- if section.settings.home_page_only == false or template.name == 'index' -%}
+
+        {%- if section.settings.bar_link != blank -%}
+        <a href="{{ section.settings.announcement_bar_link }}">
+          {{ section.settings.bar_text | escape }}
+        </a>
+        {%- else -%}
+        <p>{{ section.settings.bar_text | escape }}</p>
+        {%- endif -%}
+
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+    </div>
+
+
+    <div class="header-holder">
+      <div class="container">
+
+        {% if menu != blank %}
+        <nav id="nav">
+            
+          <ul>
+            {% for link in linklists[menu].links %}
+            <li {% if link.active %}class="active" {% endif %}>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              {% if link.handle == mega_menu_handle and mega_menu_handle != blank %}
+              {% if section.blocks.size > 0 %}
+              <div class="mege-nav">
+                <div class="container">
+                  <div class="row">
+                    {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                    {% when 'link_list' %}
+                    <div class="col-nav">
+                      <ul class="nav-list">
+                        {% if block.settings.mega_menu != blank %}
+                        <li {% if link.active %}class="active" {% endif %}>
+                          <a href="/collections/all">View All</a>
+                        </li>
+                        {% for link in linklists[block.settings.mega_menu].links %}
+                        <li {% if link.active %}class="active" {% endif %}>
+                          <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li {% if link.active %}class="active" {% endif %}>
+                          <a href="/collections/all">View All</a>
+                        </li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                    {% when 'image_picker' %}
+                    <div class="col-nav">
+                      {% if block.settings.image != blank %}
+                      <img src="{{ block.settings.image | img_url: "large" }}">
+                      <a href="{%- if block.settings.button_link != blank -%}
+                               {{ block.settings.button_link }}
+                               {%- else -%}
+                               JavaScript:Void(0);
+                               {%- endif -%}" class="btn btn-primary">
+                        {%- if block.settings.button_label != blank -%}
+                        {{ block.settings.button_label }}
+                        {%- else -%}
+                        Shop
+                        {%- endif -%}
+                      </a>
+                      {% endif %}
+                    </div>
+                    {% endcase %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        {% endif %}
+
+        <nav class="mobile-nav">
+            <a href="#" class="opener"><span></span></a>
+          <div class="search-mobile">
+              <a href="/search" class="search-btn">
+                  <img src="{{ 'ico-search.svg' | asset_url }}" alt="search">
+                  {% include 'search-form' %}
+                </a>
+          </div>
+
+          {% if menu != blank %}
+          <ul class="menu-toggle">
+            {% for link in linklists[menu].links %}
+            {% if link.links != blank %}
+            <li class="has-dropdown">
+              <a class="accordion" href="Javascript: void(0);">{{ link.title }}</a>
+              <ul class="nav-list {% if forloop.first %}active-menu{% endif %}">
+                  <li>
+                    <a href="/collections/all">View All</a>
+                  </li>
+                  {% for childlink in link.links %}
+                  <li>
+                    <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+            </li>
+            {% else %}
+            <li {% if link.active %}class="active" {% endif %}>
+              <a href="{{ link.url }}}">{{ link.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </nav>
+
+        <div class="logo">
+            <a href="/">
+              {% if section.settings.logo %}
+              <img style="max-width: {{ logo_max_width }}px;" src="{{ section.settings.logo | img_url: '100x' }}" alt="{{ shop.name }}">
+              {% else %}
+              {{ shop.name }}
+              {% endif %}
+            </a>
+          </div>
+
+        <div class="right-panel">
+          <ul class="right-nav">
+            <li class="search">
+              <a href="/search" class="search__show">
+                <img src="{{ 'ico-search.svg' | asset_url }}" alt="search">
+              </a>
+              {% include 'search-form' %}
+            </li>
+
+            {% if shop.customer_accounts_enabled %}
+            <li>
+              {% if customer %}
+              <a href="/account">
+                <img src="{{ 'ico-profile.svg' | asset_url }}" alt="profile">
+              </a>
+              {% else %}
+              <a href="/account/login">
+                <img src="{{ 'ico-profile.svg' | asset_url }}" alt="profile">
+              </a>
+              {% endif %}
+            </li>
+            {% endif %}
+
+            <li>
+              <a href="/cart">
+                <img src="{{ 'ico-cart.svg' | asset_url }}" alt="cart">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </header>
+</section>
+
+{% schema %}
+{
+"name": "Header",
+"max_blocks": 4,
+"settings": [
+{
+"type": "header",
+"content": "Announcement Bar"
+},
+{
+"type": "checkbox",
+"id": "bar_enabled",
+"label": "Enable Announcement",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "home_page_only",
+"label": "Home page only",
+"default": false
+},
+{
+"type": "text",
+"id": "bar_text",
+"label": "Message Text",
+"default": "FREE shipping over £50!"
+},
+{
+"type": "url",
+"id": "bar_link",
+"label": "Message Link"
+},
+{
+"type": "color",
+"id": "color_bg",
+"label": "Background Color",
+"default": "#231F20"
+},
+{
+"type": "color",
+"id": "color_text",
+"label": "Text Color",
+"default": "#fff"
+},
+{
+"type": "header",
+"content": "Navigation"
+},
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Logo image"
+},
+{
+"type": "range",
+"id": "logo_max_width",
+"label": "Custom logo width",
+"min": 50,
+"max": 250,
+"step": 5,
+"unit": "px",
+"default": 100
+},
+{
+"type": "link_list",
+"id": "main_linklist",
+"label": "Menu",
+"default": "main-menu"
+},
+{
+"type": "text",
+"id": "mega_menu_handle",
+"label": "Mega menu item text",
+"default": "shop"
+}
+],
+"blocks": [
+{
+"type": "link_list",
+"name": "Menu",
+"settings": [
+{
+"type": "link_list",
+"id": "mega_menu",
+"label": "Menu"
+}
+]
+},
+{
+"type": "image_picker",
+"name": "Image",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+},
+{
+"type": "text",
+"id": "button_label",
+"label": "Button label",
+"default": "Shop"
+},
+{
+"type": "url",
+"id": "button_link",
+"label": "Button link"
+}
+]
+}
+]
+}
+{% endschema %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+  {% endif %}
+  "sameAs": [
+    "{{ settings.social_twitter_link }}",
+    "{{ settings.social_facebook_link }}",
+    "{{ settings.social_pinterest_link }}",
+    "{{ settings.social_instagram_link }}",
+    "{{ settings.social_tumblr_link }}",
+    "{{ settings.social_snapchat_link }}",
+    "{{ settings.social_youtube_link }}",
+    "{{ settings.social_vimeo_link }}"
+  ],
+  "url": "{{ shop.url }}{{ page.url }}"
+}
+</script>
+
+{% if template.name == 'index' %}
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}

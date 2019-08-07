@@ -1,0 +1,61 @@
+
+.banner {
+    //background: url('hero-image.jpg') 50% 50%;
+    background-size: cover;
+    height: 466px;
+    position: relative;
+    color: $white-color;
+    @media screen and (min-width: 768px) {
+        height: 660px;
+    }
+    .container {
+        height: 100%;
+    }
+    .banner-holder {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+    .banner-caption {
+        display: flex;
+        align-items: flex-end;
+        justify-content: left;
+        height: 100%;
+        padding: 25px 0;
+        line-height: 1.5;
+        @media screen and (min-width: 768px) {
+            align-items: center;
+        }
+        .banner-caption-holder {
+            max-width: 400px;
+            @media screen and (min-width: 768px) {
+                max-width: 670px;
+            }
+        }
+        .description {
+            font-size: 1em;
+            display: block;
+            margin-bottom: 25px;
+            @media screen and (min-width: 768px) {
+                font-size: 1.462em;
+            }
+        }
+    }
+    h1 {
+        font-size: 1.728em;
+        font-weight: 700;
+        margin-bottom: 10px;
+        @media screen and (min-width: 768px) {
+            font-size: 3.583em;
+            margin-bottom: 15px;
+        }
+    }
+    .btn {
+        font-weight: 900;
+        @media screen and (min-width: 768px) {
+            min-width: 180px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+
+{% if section.settings.image != blank %}
+{% assign bg_img_url = section.settings.image | img_url: "2048x" %}
+{% endif %}
+
+
+<div class="banner" data-section-id="{{ section.id }}" data-section-type="banner-image" style="background: url({{ bg_img_url }}) 50% 50%">
+<div class="banner-holder">
+  <div class="container">
+    <div class="banner-caption">
+      <div class="banner-caption-holder">
+        
+        {%- if section.settings.title != blank -%}
+        <h1>Comfort is relative</h1>
+        {% endif %}
+        
+        {%- if section.settings.text != blank -%}
+        <span class="description">Sourced from fully traceable, guaranteed non-mulesed sheep farms in New Zealand for maximum comfort.</span>
+        {% endif %}
+        
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+       	{% endif %}
+        
+      </div>        
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner Image",
+  "class": "banner-image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Comfort is relative"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+	  "default": "<p>Sourced from fully traceable, guaranteed non-mulesed sheep farms in New Zealand for maximum comfort.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+	  "default": "Discover more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Image",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
