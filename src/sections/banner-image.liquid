@@ -5,21 +5,21 @@
 
 
 <div class="banner" data-section-id="{{ section.id }}" data-section-type="banner-image" style="background: url({{ bg_img_url }}) 50% 50%">
-<div class="banner-holder">
+<div class="banner__holder">
   <div class="container">
-    <div class="banner-caption">
-      <div class="banner-caption-holder">
+    <div class="banner__caption">
+      <div class="banner__caption-holder">
         
         {%- if section.settings.title != blank -%}
         <h1>Comfort is relative</h1>
         {% endif %}
         
         {%- if section.settings.text != blank -%}
-        <span class="description">Sourced from fully traceable, guaranteed non-mulesed sheep farms in New Zealand for maximum comfort.</span>
+        <span class="banner__description">Sourced from fully traceable, guaranteed non-mulesed sheep farms in New Zealand for maximum comfort.</span>
         {% endif %}
         
         {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-        <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+        <a href="{{ section.settings.button_link }}" class="btn btn__primary">{{ section.settings.button_label }}</a>
        	{% endif %}
         
       </div>        

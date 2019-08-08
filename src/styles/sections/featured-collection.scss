@@ -4,21 +4,17 @@
  * Base styling for the featured collection product grid.
  *
  */
-.featured-collection {
-  
-}
-
 .section {
-    padding: 25px 0;
-    @media screen and (min-width: 768px) {
-        padding: 60px 0;
+    padding: 29px 0;
+    @include media-query($medium-up) {
+        padding: 70px 0 72px;
     }
     h2 {
         font-size: 1.440em;
         font-weight: 700;
-        margin: 0 0 20px;
+        margin: 0 0 16px;
         text-align: center;
-        @media screen and (min-width: 768px) {
+        @include media-query($medium-up) {
             font-size: 1.728em;
         }
     }
@@ -33,11 +29,11 @@
     .slide {
         width: 320px;
         float: left;
-        padding: 7px;
+        padding: 7px 5px;
         .img-holder {
             position: relative;
             &:hover {
-                @media screen and (min-width: 768px) {
+                @include media-query($medium-up) {
                     .btn {
                         display: block;
                     }
@@ -45,18 +41,20 @@
             }
             .btn {
                 width: auto;
-                left: 20px;
-                right: 20px;
-                bottom: 20px;
+                left: 18px;
+                right: 18px;
+                bottom: 14px;
                 position: absolute;
                 display: none;
+                font-size: 0.688em;
+                padding: 15px;
             }
         }
         img {
             display: block;
             width: 100%;
             height: auto;
-            margin: 0 0 10px;
+            margin: 0 0 18px;
         }
     }
     .prev, .next {
@@ -90,7 +88,7 @@
         display: block;
         font-weight: 600;
         font-size: 0.694em;
-        @media screen and (min-width: 768px) {
+        @include media-query($medium-up) {
          font-size: 1em;
          font-weight: 700;
          margin: 0 0 2px;
@@ -99,7 +97,7 @@
     .price {
         font-size: 0.694em;
         font-weight: 600;
-        @media screen and (min-width: 768px) {
+        @include media-query($medium-up) {
             font-size: 0.833em;
            }
     }
@@ -111,6 +109,7 @@
         z-index: 1;
         left: 10px;
         top: 10px;
+        font-weight: 900;
         color: $white-color;
     }
 }

@@ -9,10 +9,11 @@
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.75);
     text-align: center;
+
     -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   }
   .blocker:before{
     content: "";
@@ -119,7 +120,7 @@
 // Popup styles
 
 .popup {
-  max-width: 1260px;
+  max-width: 1210px;
   position: relative;
   margin: 0 auto;
   padding: 0;
@@ -136,7 +137,7 @@
       @media screen and (min-width: 766px) {
         display: inline-block;
         vertical-align: middle;
-        width: 47%;
+        width: 49%;
     }
   }
   .txt-holder {
@@ -146,18 +147,20 @@
       @media screen and (min-width: 766px) {
           display: inline-block;
           vertical-align: middle;
-          width: 49%;
-          padding: 30px 60px;
+          width: 50%;
+          padding: 30px 52px 218px 61px;
       }
       h3 {
           font-size: 1.4em;
           margin: 0 0 10px;
+          font-weight: 700;
           @media screen and (min-width: 766px) {
             font-size: 1.728em;
           }
       }
       p {
-          margin: 0 0 20px
+          line-height: 1.313em;
+          margin: 0 0 25px
       }
       .price {
           font-size: 1em;
@@ -173,7 +176,7 @@
           margin: 0 0 15px;
           font-size: 0.694em;
           @media screen and (min-width: 766px) {
-            margin: 0 0 25px;
+            margin: 0 0 30px;
           }
       }
       .btn-row {
@@ -182,34 +185,34 @@
           .btn-group {
               float: left;
               width: 140px;
-              border: 1px solid #000;
+              border: 1px solid #ADADAD;
               margin: 0 15px 15px 0;
               .minus, .plus {
                   float: left;
                   width: 39px;
-                  height: 32px;
+                  height: 42px;
                   text-align: center;
-                  line-height: 32px;
+                  line-height: 42px;
                   cursor: pointer;
                   @media screen and (min-width: 766px) {
-                    height: 45px;
-                  line-height: 45px;
+                    height: 52px;
+                    line-height: 52px;
                   }
               }
               input {
                   text-align: center;
                   float: left;
-                  border: 1px solid #000;
+                  border: 1px solid #ADADAD;
                   border-top: 0;
                   border-bottom: 0;
                   text-align: center;
                   width: 60px;
-                  height: 32px;
-                  line-height: 32px;
+                  height: 45px;
+                  line-height: 45px;
                   font-size: 1em;
                   @media screen and (min-width: 766px) {
-                    height: 45px;
-                    line-height: 45px;
+                    height: 52px;
+                    line-height: 52px;
                   }
               }
           }
@@ -217,6 +220,8 @@
               float: left;
               width: 100%;
               max-width: 330px;
+              font-size: 1em;
+              padding: 17px;
           }
       }
   }

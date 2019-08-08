@@ -20,6 +20,7 @@
   text-align: center;
   display: inline-block;
   vertical-align: top;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 11px 15px;
   appearance: none;
@@ -30,13 +31,13 @@
   -webkit-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
-  @media screen and (min-width: 768px) {
+  @include media-query($medium-up) {
     font-size: 0.833em;
-    padding: 15px;
+    padding: 13px 15px;
     min-width: 128px;
   }
   cursor: pointer;
-  &.btn-primary {
+  &__primary {
       background: #000;
       color: $white-color;
       &:hover {

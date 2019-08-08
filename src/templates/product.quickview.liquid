@@ -59,7 +59,7 @@
     {% assign current_variant = product.selected_or_first_available_variant %}
 
     {% if current_variant.sku != blank %}
-    <span class="code">{{ current_variant.sku }}</span>
+    <span class="code">SKU: {{ current_variant.sku }}</span>
     {% endif %}
 
     <div class="btn-row">
@@ -80,11 +80,11 @@
       </div>
 
       {% if sold_out %}
-      <button type="button" name="add" class="btn btn-primary" {%if product.available != true %}disabled{% endif %}>
+      <button type="button" name="add" class="btn btn__primary" {%if product.available != true %}disabled{% endif %}>
         {{ 'products.product.unavailable' | t }}
       </button>
       {% else %}
-      <button id="AddToCart" type="submit" name="add" class="btn btn-primary">
+      <button id="AddToCart" type="submit" name="add" class="btn btn__primary">
         {{ 'products.product.add_to_cart' | t }}
       </button>
       {% endif %}

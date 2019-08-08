@@ -5,57 +5,60 @@
     height: 466px;
     position: relative;
     color: $white-color;
-    @media screen and (min-width: 768px) {
+    @include media-query($medium-up) {
         height: 660px;
     }
     .container {
         height: 100%;
     }
-    .banner-holder {
+    h1 {
+        font-size: 1.728em;
+        font-weight: 700;
+        margin-bottom: 10px;
+        @include media-query($medium-up) {
+            font-size: 3.583em;
+            margin-bottom: 13px;
+        }
+    }
+    .btn {
+        font-weight: 900;
+        @include media-query($medium-up) {
+            min-width: 180px;
+            margin-bottom: 13px;
+        }
+    }
+    &__holder {
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
         top: 0;
     }
-    .banner-caption {
+    &__caption {
         display: flex;
         align-items: flex-end;
         justify-content: left;
         height: 100%;
-        padding: 25px 0;
+        padding: 29px 0;
         line-height: 1.5;
-        @media screen and (min-width: 768px) {
+        @include media-query($medium-up) {
             align-items: center;
         }
-        .banner-caption-holder {
-            max-width: 400px;
-            @media screen and (min-width: 768px) {
-                max-width: 670px;
-            }
-        }
-        .description {
-            font-size: 1em;
-            display: block;
-            margin-bottom: 25px;
-            @media screen and (min-width: 768px) {
-                font-size: 1.462em;
-            }
+    }
+    &__caption-holder {
+        max-width: 400px;
+        @include media-query($medium-up) {
+            max-width: 687px;
         }
     }
-    h1 {
-        font-size: 1.728em;
-        font-weight: 700;
-        margin-bottom: 10px;
-        @media screen and (min-width: 768px) {
-            font-size: 3.583em;
-            margin-bottom: 15px;
-        }
-    }
-    .btn {
-        font-weight: 900;
-        @media screen and (min-width: 768px) {
-            min-width: 180px;
+    &__description {
+        font-size: 1em;
+        display: block;
+        margin-bottom: 21px;
+        word-spacing: 1px;
+        @include media-query($medium-up) {
+            font-size: 1.462em;
+            margin-bottom: 40px;
         }
     }
 }

@@ -1,15 +1,12 @@
 .clearfix {
   @include clearfix;
 }
-
 .visually-hidden {
   @include visually-hidden;
 }
-
 .js-focus-hidden:focus {
   outline: none;
 }
-
 .label-hidden {
   @include visually-hidden;
 
@@ -18,11 +15,9 @@
     @include visually-shown;
   }
 }
-
 .visually-shown {
   @include visually-shown;
 }
-
 // Only show when JS is not supported
 .no-js:not(html) {
   display: none;
@@ -41,7 +36,6 @@
     display: none;
   }
 }
-
 // Only show when browser cookies are not supported
 .supports-no-cookies:not(html) {
   display: none;
@@ -50,14 +44,12 @@
     display: block;
   }
 }
-
 // Only show when browser cookies are supported
 .supports-cookies {
   html.supports-no-cookies & {
     display: none;
   }
 }
-
 // Skip to content button
 // Overrides .visually-hidden when focused
 .skip-link:focus {
@@ -68,7 +60,6 @@
   color: $color-body-text;
   transition: none;
 }
-
 .hide {
   /* stylelint-disable declaration-no-important */
   display: none !important;
@@ -83,7 +74,7 @@
   padding: 0 20px;
   margin: 0 auto;
   @media screen and (min-width: 1200px) {
-    padding: 0 30px;
+    padding: 0 25px;
   }
   &:after {
       content: '';

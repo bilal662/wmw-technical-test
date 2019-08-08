@@ -3,16 +3,20 @@
   vertical-align: middle;
   width: 20px;
   height: 20px;
+  
   path {
     fill: currentColor;
   }
+
   .no-svg & {
     display: none;
   }
 }
+
 .icon--wide {
   width: 40px;
 }
+
 svg,
 symbol {
   &.icon:not(.icon--full-color) {
@@ -26,6 +30,7 @@ symbol {
     img {
       max-width: 100%;
     }
+
     rect {
       fill: inherit;
       stroke: inherit;
@@ -33,8 +38,7 @@ symbol {
   }
 }
 
-// A generic way to visually hide content while
-// remaining accessible to screen readers (h5bp.com)
+
 .icon-fallback-text {
   @include visually-hidden;
 

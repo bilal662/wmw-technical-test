@@ -33,7 +33,7 @@
     </div>
 
 
-    <div class="header-holder">
+    <div class="header__holder">
       <div class="container">
 
         {% if menu != blank %}
@@ -47,11 +47,11 @@
               {% if section.blocks.size > 0 %}
               <div class="mege-nav">
                 <div class="container">
-                  <div class="row">
+                  <div class="row justify-row">
                     {%- for block in section.blocks -%}
                     {%- case block.type -%}
                     {% when 'link_list' %}
-                    <div class="col-nav">
+                    <div class="col-nav listing-col">
                       <ul class="nav-list">
                         {% if block.settings.mega_menu != blank %}
                         <li {% if link.active %}class="active" {% endif %}>
@@ -77,7 +77,7 @@
                                {{ block.settings.button_link }}
                                {%- else -%}
                                JavaScript:Void(0);
-                               {%- endif -%}" class="btn btn-primary">
+                               {%- endif -%}" class="btn btn__primary">
                         {%- if block.settings.button_label != blank -%}
                         {{ block.settings.button_label }}
                         {%- else -%}

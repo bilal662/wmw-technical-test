@@ -1,12 +1,17 @@
 /**
  * Text colors.
  */
-$color-body-text: 'aktiv-grotesk', sans-serif;
+$base-font: 'Montserrat', sans-serif;
+$color-body-text: 'Montserrat', sans-serif;
+$body-text-color: #000;
+$color-body: 'Montserrat', sans-serif;
 
 /**
  * Background colors.
  */
-$color-body: 'aktiv-grotesk', sans-serif;
+
+$dark-bg-color: #231F20;
+$white-color: #fff;
 
 /**
  * Placeholders.
@@ -30,16 +35,11 @@ $color-error-bg: #ffffff;
 $color-success: #000000;
 $color-success-bg: #000000;
 
-$base-font: 'Montserrat', sans-serif;
-$body-text-color: #000;
-$dark-bg-color: #231F20;
-$white-color: #fff;
-
 /**
  * Typography.
  */
-$font-heading: 'aktiv-grotesk', sans-serif;
-$font-body: 'aktiv-grotesk', sans-serif;
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Montserrat', sans-serif;
 $font-body-weight: 300;
 $font-body-style: normal;
 $font-body-bold-weight: 500;
@@ -53,7 +53,7 @@ $transition-timing: ease-in-out;
 /**
  * Grid values.
  */
-$grid-medium: 46.85em;
+$grid-medium: 48em;
 $grid-large: 61.85em;
 $grid-widescreen: 87.5em;
 $grid-max-width: 73.75em;
