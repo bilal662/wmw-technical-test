@@ -248,9 +248,9 @@
                 height: 4px;
                 background: #000;
                 -moz-transition: all 0.25s linear;
-		-webkit-transition: all 0.25s linear;
-		-o-transition: all 0.25s linear;
-		transition: all 0.25s linear;
+            		-webkit-transition: all 0.25s linear;
+            		-o-transition: all 0.25s linear;
+            		transition: all 0.25s linear;
             }
         }
           &:hover, &.active {
@@ -263,10 +263,6 @@
                 z-index: 9999;
                 max-height: 4000px;
                 opacity: 1;
-                // -webkit-transform: translateY(0);
-                // -ms-transform: translateY(0);
-                // -o-transform: translateY(0);
-                // transform: translateY(0);
             }
           }
       }
@@ -279,16 +275,12 @@
       top: 100%;
       background: #F6F6F6;
       padding: 50px 0;
-       z-index: -1;
-       -moz-transition: all 0.25s linear;
-		-webkit-transition: all 0.25s linear;
-		-o-transition: all 0.25s linear;
-    transition: all 0.25s linear;
+      z-index: -1;
+      -moz-transition: all 0.25s linear;
+      -webkit-transition: all 0.25s linear;
+      -o-transition: all 0.25s linear;
+      transition: all 0.25s linear;
     opacity: 0;
-		// -webkit-transform: translateY(-100%);
-		// -ms-transform: translateY(-100%);
-		// -o-transform: translateY(-100%);
-		// transform: translateY(-100%);
       .col-nav {
           float: left;
           width: 25%;
