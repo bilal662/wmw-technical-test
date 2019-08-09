@@ -42,3 +42,7 @@ The terminal should provide you with a preview link to your theme, and will auto
 `https://123.45.678.90:3000/?preview_theme_id=THEME_ID` 
 
 > If you are getting localhost or certificate issues, then please follow this guide to troubleshoot the issue. [Create a self signed SSL certificate](https://github.com/Shopify/slate/wiki/4.-Create-a-self-signed-SSL-certificate)
+
+5. **Working demo link**
+
+The working demo can be accessed from [here](https://wmw-advance-test.myshopify.com/)
