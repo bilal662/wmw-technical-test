@@ -34,7 +34,7 @@
     "@shopify/theme-variants": "^1.0.0-alpha.8",
     "jquery": "^3.4.1",
     "jquery-modal": "^0.9.2",
-    "lodash-es": "^4.17.4",
+    "lodash-es": "^4.17.21",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
